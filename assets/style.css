@@ -1,0 +1,220 @@
+/* color constants */
+:root{
+	--bg-main:#0d0010;
+	--bg-light: #c7c7c7;
+	--bg-secondary: #e6e6e6;
+	--btn-bg: #29032c;
+	--btn-ctrl-red: #b30c04;
+	
+}
+
+html,
+body{
+	padding: 0px;
+	margin: 0px;
+	font-size: 18px;
+	font-family: Roboto;
+	height: 100%;
+	position: relative;
+	color: var(--bg-light);
+}
+
+/* main grid container for other grid items and containers
+*/
+.container{
+	width: 480px;
+	border: 1px solid;
+	margin: 20px auto;
+	position: relative;
+	display: grid;
+	grid-template-rows: 0.5fr 7fr 0.5fr;
+	grid-template-areas: 
+		"header"
+		"main"
+		"footer";
+	gap: 5px;
+	background-color: var(--bg-light);
+}
+
+
+
+.header{
+	grid-area: header;
+	grid-template-columns: 8% 90%;
+	display: grid; /*container for header items */
+	padding: 5px;
+	box-sizing: border-box;
+	background-color: var(--bg-main);
+	color: var(--bg-light);
+}
+
+h1{
+	margin: 0px;
+	text-align: center;
+	font-size: 24px;
+}
+
+#menu-icon{
+	font-size: 24px;
+}
+
+/* menu styles */
+nav li{
+	list-style: none;
+	position: relative;
+	list-style-position: inside;
+	padding: 2px 2px;
+}
+
+nav li:hover{
+	background-color: var(--btn-bg);
+	color: var(--main);
+	cursor: pointer;
+}
+
+.menu{
+	width: 150px;
+	background-color: var(--bg-main);
+	color: var(--bg-secondary);
+	box-shadow: 3px 3px 8px var(--bg-light);
+	position: absolute;
+	z-index: 60;
+	display: none;
+}
+
+output{
+	width: 98%;
+	padding: 1%;
+	text-align: right;
+	display: grid;
+	height: 40px;
+	align-content: end;
+	background-color: var(--bg-secondary);
+	border-bottom: 1px solid;
+	color: var(--bg-main);
+}
+
+output:first-child{
+	font-weight: bold;
+	border-bottom: 1px dotted;
+	border-top: 1px solid;
+
+}
+
+.main{
+	grid-area: main;
+}
+
+.footer{
+	grid-area: footer;
+	text-align: center;
+	padding-top: 5px;
+	background-color: var(--bg-main);
+	color: var(--bg-light);
+}
+
+.buttons{
+	display: grid;
+	grid-template-columns: repeat(4, 20%);
+	height: 300px;
+	place-content: space-around;
+}
+
+.inp,
+.ctrls{
+	font-size: 24px;
+	border-radius: 10px;
+	border: none;
+	color: var(--bg-light);
+}
+
+.inp:hover,
+.ctrls:hover{
+	animation-name: change-color;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes change-color{
+	100%{
+		background: #0d0010dd;
+		transform: scale(1.1);
+	}
+}
+.inp{
+	background-color: var(--btn-bg);
+}
+
+.ctrls{
+	background-color: var(--bg-main);
+}
+
+.clear{
+	background-color: #b30c04;
+}
+
+.equals{
+	background-color: #00462b;
+}
+
+.error-box,
+.info-box
+	{
+	display: none;
+	padding: 5px;
+	width: 90%;
+	box-shadow: 2px 2px 4px var(--bg-light);
+	position: absolute;
+	width: 90%;
+	top: 60px;
+	left: 20px;
+	background-color: var(--bg-main);
+}
+
+.anime{
+	animation-name: turn;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+}
+
+@keyframes turn{
+	100%{
+		transform: rotate(360deg);
+	}
+}
+h3{
+	margin: 0px;
+}
+
+.fa-close{
+	display: grid;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	position: absolute;
+	right: -15px;
+	top: -15px;
+	background-color: var(--bg-main);
+	text-align: center;
+	padding: 5px;
+}
+
+.fa-close:hover{
+	background-color: #400;
+	cursor: pointer;
+}
+.fa-bars:hover{
+	color: #aa0000aa;
+	cursor: pointer;
+}
+
+.show{
+	display: grid;
+}
+
+@media screen (max-width: 480px){
+	.main{
+		width: 98%;
+	}
+}

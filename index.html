@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pina Calc</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="author" content="Emmanuel Joshua" />
+	<!-- link to fontawesome -->
+	<link rel="stylesheet" type="text/css" href="assets/font-awesome.css" />
+	<!-- link to Google Font -->
+
+	<!-- link to main stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/style.css" />
+</head>
+<body>
+	<div class="container">
+		<header class="items header">
+			<div id="menu-icon">
+				<i class="fa fa-bars"></i>
+			</div>
+			<h1>
+				<i class="fa fa-calculator"></i> PINA CALC
+			</h1> 
+		</header>
+		<main class="items main">
+			<section class="sub-items menu">
+				<nav role="main">
+					<ul>
+						<li>Dark mode</li>
+						<li>Functions</li>
+						<li>Help</li>
+						<li>Credit</li>
+					</ul>
+				</nav>
+			</section>
+			<section class="sub-items info-box">
+				<i class="fa fa-close"></i>
+				<h3>Help</h3>
+				Here are a few tips to help you use this calculator effectively.
+				<ul>
+					<li>To show more functions, go to <b>Menu</b>, then tap <b>Funcs</b></li>
+					<li>Toggle theme mode between dark and light</li>
+					<li>Properly close brackets to ensure accuracy of results</li>
+					<li>To save a value, press the <b>M+</b> button</li>
+					<li>To recall a saved value, press <b>MR</b></li>
+					<li>Clear screen with <b>AC</b> or clear each value with <b>CE</b></li>
+				</ul>
+
+				<h3>Credits</h3>
+				<p align="center">&#128149; Developed by Emmanuel with HTML5, CSS and CSS3 Grid.
+					<br/>
+				&#128149; Shout out to FreeCodeCamp for the CSS Grid tutorial.
+				<br/>
+				&#128149; Recognition to the #100DaysOfCode for keeping me motivated.
+				<br/>
+				&#128149; Thanks to all the inspiring Devs that make the ecosystem an interesting one.
+				<br />
+				<br />
+				&#128147;
+			</section>
+			<section class="sub-items error-box">
+				<i class="fa fa-close"></i>
+				Invalid input;
+			</section>
+			<section class="sub-items output">
+				<output class="top">
+					15
+				</output>
+				<output class="bottom">
+					sqrt(25)--(5*2)
+				</output>
+			</section>
+			<section class="sub-items buttons">
+				<button class="ctrls" onclick="addVal('(')">(</button>
+				<button class="ctrls" onclick="addVal(')')">)</button>
+				<button class="ctrls" onclick="addVal(3.1415927)"><i class="fab fa-pi"></i></button>
+				<button class="ctrls" onclick="addVal()"><i class="fas fa-square-root"></i></button>
+
+				<button class="ctrls" onclick="calReciprocal()"><i class="fas fa-reciprocal"></i></button>
+				<button class="ctrls" onclick="calcPercent()"><i class="fa fa-percent"></i></button>
+				<button class="ctrls" onclick="addSup()"><i class="fa fa-power"></i></button>
+				<button class="ctrls" onclick="addSup()"><i class="fa fa-exponential"></i></button>
+			
+			
+				<button class="inp" onclick="addVal(7)">7</button>
+				<button class="inp" onclick="addVal(8)">8</button>
+				<button class="inp" onclick="addVal(9)">9</button>
+				<button class="ctrls" onclick="addVal('/')">/</button>
+
+				<button class="inp" onclick="addVal(4)">4</button>
+				<button class="inp" onclick="addVal(5)">5</button>
+				<button class="inp" onclick="addVal(6)">6</button>
+				<button class="ctrls" onclick="addVal('*')">*</button>
+
+				<button class="inp" onclick="addVal(1)">1</button>
+				<button class="inp" onclick="addVal(2)">2</button>
+				<button class="inp" onclick="addVal(3)">3</button>
+				<button class="ctrls" onclick="addVal('-')">-</button>
+
+				<button class="inp" onclick="addVal(0)">0</button>
+				<button class="ctrls" onclick="addVal('.')">.</button>
+				<button class="inp clear" onclick="clearEntry()">CE</button>
+				<button class="ctrls" onclick="addVal('+')">+</button>
+
+				<button class="inp clear" onclick="clearAll()">AC</button>
+				<button class="ctrls" onclick="addToMemory()">M+</button>
+				<button class="ctrls" onclick="memoryRecall">MR</button>
+				<button class="inp equals" onclick="calVal()">=</button>
+			</section>
+		</main>
+		<footer class="items footer">
+			&copy; Emmanuel Joshua, <span class="year"></span> | <span class="follow">Follow: </span> 
+			<a href="https://twitter.com/emmadonjo" target="_blank" title="Follow me on twitter">
+				<i class="fa fa-twitter-square"></i>
+			</a>
+			<a href="https://www.facebook.com/emmadonjo" target="_blank" title="Follow me on Facebook">
+				<i class="fa fa-facebook-square"></i>
+			</a>
+		</footer>
+	</div>
+	<script type="text/javascript" src="assets/calc.js"></script>
+</body>
+</html>
