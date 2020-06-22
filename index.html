@@ -5,10 +5,10 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="author" content="Emmanuel Joshua" />
-	<!-- link to fontawesome -->
-	<link rel="stylesheet" type="text/css" href="assets/font-awesome.css" />
+	<!-- link to fontawesome CDN -->
+	<link rel="stylesheet" type="text/css" href="assets/all.css" />
 	<!-- link to Google Font -->
-
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" type="text/css"/> -->
 	<!-- link to main stylesheet -->
 	<link rel="stylesheet" type="text/css" href="assets/style.css" />
 </head>
@@ -20,32 +20,35 @@
 			</div>
 			<h1>
 				<i class="fa fa-calculator"></i> PINA CALC
-			</h1> 
+			</h1>
 		</header>
 		<main class="items main">
 			<section class="sub-items menu">
 				<nav role="main">
 					<ul>
-						<li>Dark mode</li>
-						<li>Functions</li>
-						<li>Help</li>
-						<li>Credit</li>
+						<li id="dark">Dark mode</li>
+						<li id="func">Functions</li>
+						<li id="help">Help</li>
+						<li id="credit">Credit</li>
 					</ul>
 				</nav>
 			</section>
 			<section class="sub-items info-box">
-				<i class="fa fa-close"></i>
+				<span class="close" id="closeInfo">X</span>
 				<h3>Help</h3>
 				Here are a few tips to help you use this calculator effectively.
 				<ul>
-					<li>To show more functions, go to <b>Menu</b>, then tap <b>Funcs</b></li>
-					<li>Toggle theme mode between dark and light</li>
+					<li>To show more functions, go to <b>Menu</b>, then tap <b>Functions</b></li>
+					<li>Turn on dark theme by tapping <b>Menu</b>, then <b>Dark mode</b></li>
 					<li>Properly close brackets to ensure accuracy of results</li>
 					<li>To save a value, press the <b>M+</b> button</li>
 					<li>To recall a saved value, press <b>MR</b></li>
 					<li>Clear screen with <b>AC</b> or clear each value with <b>CE</b></li>
+					<li>Keyboard inputs are supported: you can use <b>Backspace</b> to delete each value, <b>Delete</b> to clear all, and <b>Return</b> or <b>Enter</b> key to compute.				</li>
 				</ul>
-
+			</section>
+			<section class="sub-items credit">
+				<span class="close" id="closeCredit">X</span>
 				<h3>Credits</h3>
 				<p align="center">&#128149; Developed by Emmanuel with HTML5, CSS and CSS3 Grid.
 					<br/>
@@ -57,64 +60,68 @@
 				<br />
 				<br />
 				&#128147;
-			</section>
-			<section class="sub-items error-box">
-				<i class="fa fa-close"></i>
-				Invalid input;
+
 			</section>
 			<section class="sub-items output">
-				<output class="top">
-					15
+				<output class="top" id="result">
 				</output>
-				<output class="bottom">
-					sqrt(25)--(5*2)
+				<output class="bottom" id="output"  autofocus>
 				</output>
 			</section>
 			<section class="sub-items buttons">
-				<button class="ctrls" onclick="addVal('(')">(</button>
-				<button class="ctrls" onclick="addVal(')')">)</button>
-				<button class="ctrls" onclick="addVal(3.1415927)"><i class="fab fa-pi"></i></button>
-				<button class="ctrls" onclick="addVal()"><i class="fas fa-square-root"></i></button>
+				<section class="func">
+					<button class="ctrls text" onclick="addVal('(')">(</button>
+					<button class="ctrls text" onclick="addVal(')')">)</button>
+					<button class="ctrls text" onclick="addVal(3.1415927)">Pi</button>
+					<button class="ctrls" onclick="addVal('sqrt(')"><i class="fas fa-square-root-alt"></i></button>
 
-				<button class="ctrls" onclick="calReciprocal()"><i class="fas fa-reciprocal"></i></button>
-				<button class="ctrls" onclick="calcPercent()"><i class="fa fa-percent"></i></button>
-				<button class="ctrls" onclick="addSup()"><i class="fa fa-power"></i></button>
-				<button class="ctrls" onclick="addSup()"><i class="fa fa-exponential"></i></button>
-			
-			
-				<button class="inp" onclick="addVal(7)">7</button>
-				<button class="inp" onclick="addVal(8)">8</button>
-				<button class="inp" onclick="addVal(9)">9</button>
-				<button class="ctrls" onclick="addVal('/')">/</button>
+					<button class="ctrls text" onclick="calcReciprocal()"><sup>1/</sup>x</button>
+					<button class="ctrls" onclick="calcPercent()"><i class="fa fa-percent"></i></button>
+					<button class="ctrls text" onclick="addVal('^2')">x<sup>2</sup></button>
+					<button class="ctrls text" onclick="addVal('^')">x<sup>y</sup></button>
+				</section>
 
-				<button class="inp" onclick="addVal(4)">4</button>
-				<button class="inp" onclick="addVal(5)">5</button>
-				<button class="inp" onclick="addVal(6)">6</button>
-				<button class="ctrls" onclick="addVal('*')">*</button>
+				<section class="btn">
+					<button class="inp" onclick="addVal(7)">7</button>
+					<button class="inp" onclick="addVal(8)">8</button>
+					<button class="inp" onclick="addVal(9)">9</button>
+					<button class="ctrls" onclick="addVal('/')"><i class="fas fa-divide"></i></button>
 
-				<button class="inp" onclick="addVal(1)">1</button>
-				<button class="inp" onclick="addVal(2)">2</button>
-				<button class="inp" onclick="addVal(3)">3</button>
-				<button class="ctrls" onclick="addVal('-')">-</button>
+					<button class="inp" onclick="addVal(4)">4</button>
+					<button class="inp" onclick="addVal(5)">5</button>
+					<button class="inp" onclick="addVal(6)">6</button>
+					<button class="ctrls" onclick="addVal('*')"><i class="fas fa-times"></i></button>
 
-				<button class="inp" onclick="addVal(0)">0</button>
-				<button class="ctrls" onclick="addVal('.')">.</button>
-				<button class="inp clear" onclick="clearEntry()">CE</button>
-				<button class="ctrls" onclick="addVal('+')">+</button>
+					<button class="inp" onclick="addVal(1)">1</button>
+					<button class="inp" onclick="addVal(2)">2</button>
+					<button class="inp" onclick="addVal(3)">3</button>
+					<button class="ctrls" onclick="addVal('-')"><i class="fas fa-minus"></i></button>
 
-				<button class="inp clear" onclick="clearAll()">AC</button>
-				<button class="ctrls" onclick="addToMemory()">M+</button>
-				<button class="ctrls" onclick="memoryRecall">MR</button>
-				<button class="inp equals" onclick="calVal()">=</button>
+					<button class="inp" onclick="addVal(0)">0</button>
+					<button class="ctrls" onclick="addVal('.')">.</button>
+					<button class="inp clear" onclick="clearEntry()">CE</button>
+					<button class="ctrls" onclick="addVal('+')"><i class="fas fa-plus"></i></button>
+
+					<button class="inp clear" onclick="clearAll()">AC</button>
+					<button class="ctrls" onclick="addToMemory()">M+</button>
+					<button class="ctrls" onclick="memoryRecall()">MR</button>
+					<button class="inp equals" onclick="calVal()"><i class="fas fa-equals"></i></button>
+			</section>
 			</section>
 		</main>
 		<footer class="items footer">
-			&copy; Emmanuel Joshua, <span class="year"></span> | <span class="follow">Follow: </span> 
+			&copy; Emmanuel Joshua, <span class="year"></span> | <span class="follow">Follow: </span>
 			<a href="https://twitter.com/emmadonjo" target="_blank" title="Follow me on twitter">
-				<i class="fa fa-twitter-square"></i>
+				<i class="fab fa-twitter-square"></i>
 			</a>
 			<a href="https://www.facebook.com/emmadonjo" target="_blank" title="Follow me on Facebook">
-				<i class="fa fa-facebook-square"></i>
+				<i class="fab fa-facebook-square"></i>
+			</a>
+			<a href="https://www.github.com/emmadonjo" target="_blank" title="Follow me on Github">
+				<i class="fab fa-github-square"></i>
+			</a>
+			<a href="https://www.codepen.io/emmadonjo" target="_blank" title="Follow me on Codepen">
+				<i class="fab fa-codepen"></i>
 			</a>
 		</footer>
 	</div>

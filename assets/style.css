@@ -1,11 +1,11 @@
 /* color constants */
-:root{
+html{
 	--bg-main:#0d0010;
 	--bg-light: #c7c7c7;
 	--bg-secondary: #e6e6e6;
 	--btn-bg: #29032c;
 	--btn-ctrl-red: #b30c04;
-	
+	--font-color:#888;
 }
 
 html,
@@ -16,7 +16,7 @@ body{
 	font-family: Roboto;
 	height: 100%;
 	position: relative;
-	color: var(--bg-light);
+	color: var(--font-color);
 }
 
 /* main grid container for other grid items and containers
@@ -28,7 +28,7 @@ body{
 	position: relative;
 	display: grid;
 	grid-template-rows: 0.5fr 7fr 0.5fr;
-	grid-template-areas: 
+	grid-template-areas:
 		"header"
 		"main"
 		"footer";
@@ -42,10 +42,11 @@ body{
 	grid-area: header;
 	grid-template-columns: 8% 90%;
 	display: grid; /*container for header items */
-	padding: 5px;
+	padding: 2%;
 	box-sizing: border-box;
 	background-color: var(--bg-main);
-	color: var(--bg-light);
+	color: var(--font-color);
+	width:100%;
 }
 
 h1{
@@ -64,6 +65,7 @@ nav li{
 	position: relative;
 	list-style-position: inside;
 	padding: 2px 2px;
+	left: -30px;
 }
 
 nav li:hover{
@@ -73,9 +75,9 @@ nav li:hover{
 }
 
 .menu{
-	width: 150px;
+	width: 130px;
 	background-color: var(--bg-main);
-	color: var(--bg-secondary);
+	color: var(--font-color);
 	box-shadow: 3px 3px 8px var(--bg-light);
 	position: absolute;
 	z-index: 60;
@@ -103,6 +105,7 @@ output:first-child{
 
 .main{
 	grid-area: main;
+	width: 100%;
 }
 
 .footer{
@@ -113,11 +116,33 @@ output:first-child{
 	color: var(--bg-light);
 }
 
+.footer a{
+	text-decoration: none;
+	color: #aa0;
+}
+
 .buttons{
-	display: grid;
-	grid-template-columns: repeat(4, 20%);
-	height: 300px;
-	place-content: space-around;
+	display:flex;
+	flex-direction: column;
+	height:300px;
+}
+
+.func,
+.btn{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	align-content: space-evenly;
+}
+
+.func{
+	height:30%;
+	display: none;
+	flex-direction: row;
+}
+
+.btn{
+	height: 70%;
 }
 
 .inp,
@@ -125,15 +150,21 @@ output:first-child{
 	font-size: 24px;
 	border-radius: 10px;
 	border: none;
-	color: var(--bg-light);
+	color: var(--font-color);
+	width:23%;
 }
 
 .inp:hover,
 .ctrls:hover{
 	animation-name: change-color;
-	animation-duration: 1s;
+	animation-duration: 0.1s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
+}
+
+/* alternative backgrounds for icons with images */
+.text{
+	font-weight: bold;
 }
 
 @keyframes change-color{
@@ -159,13 +190,15 @@ output:first-child{
 }
 
 .error-box,
-.info-box
+.info-box,
+.credit
 	{
 	display: none;
 	padding: 5px;
 	width: 90%;
 	box-shadow: 2px 2px 4px var(--bg-light);
 	position: absolute;
+	flex-direction: column;
 	width: 90%;
 	top: 60px;
 	left: 20px;
@@ -187,10 +220,14 @@ h3{
 	margin: 0px;
 }
 
-.fa-close{
-	display: grid;
+.close{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	fontwei: bold;
 	height: 20px;
 	width: 20px;
+	color: var(--light);
 	border-radius: 50%;
 	position: absolute;
 	right: -15px;
@@ -200,7 +237,7 @@ h3{
 	padding: 5px;
 }
 
-.fa-close:hover{
+.close:hover{
 	background-color: #400;
 	cursor: pointer;
 }
@@ -210,11 +247,15 @@ h3{
 }
 
 .show{
-	display: grid;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	text-transform: center;
 }
 
 @media screen (max-width: 480px){
-	.main{
-		width: 98%;
+	.container{
+		width: 96%;
+		margin: 0px auto;
 	}
 }
